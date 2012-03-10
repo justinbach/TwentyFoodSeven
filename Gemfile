@@ -7,8 +7,10 @@ gem 'rails', '3.2.1'
 
 gem 'sqlite3'
 
+gem 'devise'
+
 group :development do
-  gem 'ruby-debug19'
+  gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 
@@ -38,5 +40,3 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
