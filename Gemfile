@@ -9,6 +9,11 @@ gem 'sqlite3'
 
 gem 'devise'
 
+gem 'less-rails-bootstrap'
+
+gem 'carrierwave'
+
+
 group :development do
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
