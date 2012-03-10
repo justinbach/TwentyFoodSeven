@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  alleged_time: 2012-03-10 16:11:51
+  user_id: 1
+
+two:
+  name: MyString
+  alleged_time: 2012-03-10 16:11:51
+  user_id: 1

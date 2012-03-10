@@ -1,4 +1,6 @@
 TwentyFoodSeven::Application.routes.draw do
+  resources :meals
+
   devise_for :users
 
   # The priority is based upon order of creation:
