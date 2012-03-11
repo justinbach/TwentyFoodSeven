@@ -3,6 +3,8 @@
     - @meals.each do |m|
       %li 
         =link_to m.name, meal_path(m)
+        - if m.user == current_user
+          =link_to "Edit", edit_meal_path(m)
 - else
   %p
     No meals!
