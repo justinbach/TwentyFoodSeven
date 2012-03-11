@@ -3,7 +3,7 @@ class MealsController < ApplicationController
 before_filter :authenticate_user!, :except => [ :index, :show ] 
 
 def index
-  @meals = Meal.find(:all)
+  @meals = params[:user].nil? ? Meal.find(:all) : Meal.where(:user_id => params[:user])
 end
 
 def show
