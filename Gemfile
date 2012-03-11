@@ -12,6 +12,8 @@ gem 'less-rails-bootstrap'
 
 gem 'carrierwave'
 
+gem 'formtastic'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'

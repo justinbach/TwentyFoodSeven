@@ -1,0 +1,8 @@
+- unless @meals.length == 0
+  %ul
+    - @meals.each do |m|
+      %li 
+        =link_to m.name, meal_path(m)
+- else
+  %p
+    No meals!
