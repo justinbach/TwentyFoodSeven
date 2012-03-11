@@ -1,7 +1,19 @@
 %header#header
-  %h1 Twenty Food Seven
+  %h1 
+    =link_to "Twenty Food Seven", root_path
   %ul#nav 
-    %li
-      =link_to "Sign Up", new_user_registration_path
-    %li
-      =link_to "Sign In", new_user_session_path
+    - unless user_signed_in? 
+      %li
+        =link_to "Sign Up", new_user_registration_path
+      %li
+        =link_to "Sign In", new_user_session_path
+    - else
+      %li
+        =link_to current_user.email, edit_user_registration_path(current_user)
+      %li
+        =link_to "My Meals", "#"
+      %li
+        =link_to "Add New Meal", new_meal_path
+      %li
+        =link_to "Sign Out", destroy_user_session_path, :method => :delete
+
