@@ -3,4 +3,6 @@
 %h3
   = @meal.meal_time.strftime("%A, %B %d, %Y")
 %p
+  =image_tag(@meal.meal_photo_url) if @meal.meal_photo?
+%p
   = @meal.notes

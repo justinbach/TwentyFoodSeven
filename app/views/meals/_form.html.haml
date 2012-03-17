@@ -2,6 +2,8 @@
   = m.inputs do
     = m.input :name
     = m.input :meal_photo, :as => :file, :label => "Photo"
+    = image_tag(@meal.meal_photo.thumb.url) if @meal.meal_photo?
+    = m.input :meal_photo_cache, :as => :hidden
     = m.input :meal_time
     = m.input :notes
   = m.actions
