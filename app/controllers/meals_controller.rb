@@ -27,11 +27,11 @@ class MealsController < ApplicationController
   end
 
   def edit
-    @meal = Meal.find(params[:id])
+    @meal = current_user.meals.find(params[:id])
   end
 
   def update
-    @meal = Meal.find(params[:id])
+    @meal = current_user.meals.find(params[:id])
     if @meal.update_attributes(params[:meal])
       flash[:notice] = "Meal successfully updated."
       redirect_to :action => :index
@@ -39,5 +39,17 @@ class MealsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @meal = current_user.meals.find(params[:id])
+    if @meal.destroy
+      flash[:notice] = "Meal successfully deleted."
+      redirect_to :action => :index
+    else
+      flash[:notice] = "Something went wrong." 
+      redirect_to :action => :index
+    end
+  end
+
 
 end
