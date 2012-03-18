@@ -9,7 +9,6 @@ gem 'rmagick'
 
 gem 'devise'
 
-gem 'less-rails-bootstrap'
 
 gem 'carrierwave'
 
@@ -39,6 +38,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'fog'
 end
 
 # To use ActiveModel has_secure_password
