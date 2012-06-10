@@ -31,6 +31,9 @@ body {
 
 #container { width: 940px; height: auto; margin: 28px auto; min-height: 100%;}
 
+.left { float: left; }
+.right { float: right; }
+
 ol { list-style-type: none; }
 
 .inputs label { margin-right: 20px; }
@@ -41,6 +44,7 @@ ol { list-style-type: none; }
   width: 100%;
   height: 100px;
   margin: auto;
+  background: url('/assets/layout/divider.png') bottom left repeat-x;
   #logo {
     float: left;
     width: 201px;
@@ -76,14 +80,14 @@ ol { list-style-type: none; }
     &:hover {
       color: green;
     }
-  } 
+  }
 
 }
 
 .meal_row {
   width: 100%;
-  height: 360px;
-  background: url('/assets/layout/divider.png') top left repeat-x;
+  height: 340px;
+  background: url('/assets/layout/divider.png') bottom left repeat-x;
   padding: 20px 0 0 0;
 }
 
@@ -94,9 +98,31 @@ ol { list-style-type: none; }
   padding: 10px;
   margin: 0 20px 0 0;
   float: left;
+  box-shadow: 0px 1px 2px 1px $shadow-color;
+  
+  img {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  font-size: 11px;
   
   &.last {
     margin: 0;
+  }
+  
+  .name {
+    font-size: 12px;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .date {
+    color: #666;  
+  }
+  
+  .user a {
+    color: #666;
   }
   
 }
