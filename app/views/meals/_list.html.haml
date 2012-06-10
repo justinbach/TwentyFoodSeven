@@ -1,13 +1,17 @@
 - unless @meals.length == 0
-  %ul
-    - @meals.each do |m|
-      %li 
-        =link_to m.name, meal_path(m)
-        =link_to image_tag(m.meal_photo.thumb.url), meal_path(m)
-        - unless current_user.nil?
-          - if params[:user].to_i  == current_user.id
-            =link_to "Edit", edit_meal_path(m)
-            =link_to "Delete", meal_path(m), :method => :delete
+  - @meals.in_groups_of(3).each do |meal_row|
+    .meal_row
+      - meal_row.each_with_index do |meal, index|
+        - unless meal.nil?
+          %div{:class => index == 2 ? "meal_thumb last" : "meal_thumb" }
+            =link_to image_tag(meal.meal_photo.thumb.url), meal_path(meal)
+          /%li 
+          /  =link_to m.name, meal_path(m)
+          /  =link_to image_tag(m.meal_photo.thumb.url), meal_path(m)
+          /  - unless current_user.nil?
+          /    - if params[:user].to_i  == current_user.id
+          /      =link_to "Edit", edit_meal_path(m)
+          /      =link_to "Delete", meal_path(m), :method => :delete
 - else
   %p
     No meals!
