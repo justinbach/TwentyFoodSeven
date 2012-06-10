@@ -21,8 +21,17 @@
   }
 }
 
+::-moz-selection {
+  background: $accent-color;
+  color: white;
+  text-shadow: none;
+}
 
-html { }
+::selection {
+  background: $accent-color;
+  color: white;
+  text-shadow: none;
+}
 
 body {
   background: url('/assets/layout/bg-tile.png');
