@@ -1,6 +1,6 @@
 - unless @meals.length == 0
-  - @meals.in_groups_of(3).each do |meal_row|
-    .meal_row
+  - @meals.in_groups_of(3).each_with_index do |meal_row, meal_row_index|
+    %div{:class => meal_row_index == 0 ? "meal_row no_border" : "meal-row"}
       - meal_row.each_with_index do |meal, index|
         - unless meal.nil?
           %div{:class => index == 2 ? "meal_thumb last" : "meal_thumb" }
@@ -11,10 +11,14 @@
               %div.user
                 Posted By:
                 =link_to meal.user.name, meals_path(:user => meal.user.id)
+              .quick_stats
+                %span.views= meal.meal_viewings.length
+                %span.comments= meal.comments.length
             .right
-              - if meal.user  == current_user
+              - if user_signed_in? and meal.user == current_user
                 =link_to "Edit", edit_meal_path(meal)
                 =link_to "Delete", meal_path(meal), :method => :delete
+  = paginate @meals
 - else
   %p
     No meals!

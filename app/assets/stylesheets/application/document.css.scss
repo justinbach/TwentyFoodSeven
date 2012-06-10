@@ -21,11 +21,21 @@
   }
 }
 
+::-moz-selection {
+  background: $accent-color;
+  color: white;
+  text-shadow: none;
+}
 
-html { }
+::selection {
+  background: $accent-color;
+  color: white;
+  text-shadow: none;
+}
 
 body {
   background: url('/assets/layout/bg-tile.png');
+  /*background: url('/assets/layout/detail-goal.jpg') top center; */
 }
 
 #container { width: 940px; height: auto; margin: 28px auto; min-height: 100%;}
@@ -68,6 +78,12 @@ ol { list-style-type: none; }
         &:hover {
           
         }
+        
+        &.bevan {
+          font-family: 'Bevan', serif;
+          font-size: 14px;
+          font-weight: normal;
+        }
       }
       @include button;
     }
@@ -84,6 +100,7 @@ ol { list-style-type: none; }
 }
 
 footer {
+  background: url('/assets/layout/divider.png') top left repeat-x;
   font-size: 11px;
   color: #666;
   padding: 10px 0;
@@ -92,8 +109,10 @@ footer {
 .meal_row {
   width: 100%;
   height: 340px;
-  background: url('/assets/layout/divider.png') bottom left repeat-x;
+  background: url('/assets/layout/divider.png') top left repeat-x;
   padding: 20px 0 0 0;
+  
+  &.no_border { background: none; }
 }
 
 .meal_thumb {
@@ -129,9 +148,110 @@ footer {
   .user a {
     color: #666;
   }
+  .quick_stats {
+    margin-top: 5px;
+    
+    .views {
+      background: url('/assets/icons/view-icon.png') no-repeat 0 2px;
+      display: inline-block;
+      padding: 0 10px 0 20px;
+    }
+    
+    .comments {
+      background: url('/assets/icons/comment-icon.png') no-repeat 0 3px;
+      display: inline-block;
+      padding-left: 18px;
+    }
+  }
   
 }
 
+#single_meal {
+  margin-top: 20px;
+  color: $brown-color;
+  
+  .left {
+    width: 620px;
+  }
+  
+  h1 {
+    font-family: 'Bevan', serif;
+    font-size: 23px;
+    font-weight: normal;
+    color: $brown-color;
+    margin: 10px 0 0 0;
+  }
+  
+  h2 {
+    font-size: 12px; 
+    font-weight: lighter;
+    margin-bottom: 0px;
+    
+    .user {
+      font-style: oblique;
+    }
+    
+    .user_link {
+      font-weight: bold;
+      text-decoration: underline;
+      color: $brown-color;
+    }
+    
+  }
+  
+  h3 {
+    width: 600px;
+    background: $gray-color;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+  }
+  
+  p.notes {
+    font-size: 15px;
+    margin-top: 4px;
+  }
+  
+  .comment {
+    font-size: 12px;
+    padding: 20px 0;
+    background: url('/assets/layout/divider.png') bottom left repeat-x;
 
+    &.last {
+      background: none;
+    }
+    
+    .user, .time, a {
+      color: $dark-gray-color;
+    }
+    
+  }
+  
+  .ingredients, .special_instructions {
+    width: 260px;
+    background-color: #fff;
+    box-shadow: 0px 1px 2px 1px $shadow-color;
+    padding: 20px;
+    h2 {
+      font-family: 'Bevan', serif;
+      font-size: 14px;
+      font-weight: normal;
+      color: $brown-color;
+    }
+    
+    p {
+      color: $gray-color;
+      font-style: oblique;
+    }
+    
+    &.ingredients {
+      margin-bottom: 10px;
+    }
+    
+  }
+  
+}
 
 

@@ -1,0 +1,13 @@
+%h3= "#{@meal.comments.length} Comment" + (@meal.comments.length == 1 ? '' : 's')
+- @meal.comments.each do |comment|
+  .comment{:class => comment == @meal.comments.last && !current_user ? "last" : ""}
+    .by
+      %span{:class => "user"}= link_to comment.user.name, meals_path(:user => comment.user.id)
+      %span{:class => "time"}= comment.created_at.strftime('%m.%d.%y %I:%M %p')
+    .body= comment.body
+- unless current_user.nil?
+  %h2 Add Comment
+  = semantic_form_for [@meal, @comment] do |c|
+    = c.inputs do
+      = c.input :body
+    = c.actions

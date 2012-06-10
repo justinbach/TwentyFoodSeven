@@ -10,5 +10,9 @@ class User < ActiveRecord::Base
   validates_presence_of :name
 
   has_many :meals
+  has_many :comments
+  
+  has_many :meal_viewings
+  has_many :viewed_meals, :through => :meal_viewings, :class_name => :meal
 
 end

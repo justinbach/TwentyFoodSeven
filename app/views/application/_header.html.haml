@@ -8,7 +8,7 @@
         =link_to "Sign In", new_user_session_path, :class => "button"
     - else
       %li
-        =link_to current_user.name, edit_user_registration_path
+        =link_to current_user.name, edit_user_registration_path, :class => 'bevan'
       %li
         =link_to "My Meals", meals_path(:user => current_user.id), :class => "button"
       %li

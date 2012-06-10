@@ -1,5 +1,8 @@
 TwentyFoodSeven::Application.routes.draw do
-  resources :meals
+
+  resources :meals do
+    resources :comments
+  end
 
   devise_for :users
 

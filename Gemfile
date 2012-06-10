@@ -6,13 +6,10 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'rmagick'
-
-gem 'devise'
-
-
+gem 'devise', '~>2.2.3'
 gem 'carrierwave'
-
 gem 'formtastic'
+gem 'kaminari'
 
 group :assets do
   gem 'sass-rails'
@@ -29,7 +26,8 @@ gem 'html5-rails'
 
 group :development do
   gem 'sqlite3'
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  # gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'debugger'
 end
 
 group :test do

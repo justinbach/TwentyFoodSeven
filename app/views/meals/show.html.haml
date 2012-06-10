@@ -1,8 +1,18 @@
-%h2
-  = @meal.name
-%h3
-  = @meal.meal_time.strftime("%A, %B %d, %Y")
-%p
-  =image_tag(@meal.meal_photo_url) if @meal.meal_photo?
-%p
-  = @meal.notes
+#single_meal
+  .left
+    =image_tag(@meal.meal_photo_url) if @meal.meal_photo?
+    %h1
+      = @meal.name
+    %h2
+      = "<span class='user'>Posted by:</span> ".html_safe + link_to(@meal.user.name, meals_path(:user => @meal.user), :class => 'user_link')  + ' ' + @meal.meal_time.strftime("%A, %B %d, %Y")
+    %p{:class => "notes"}
+      = @meal.notes
+    = render "comments"
+  .right
+    .ingredients
+      %h2 Ingredients:
+      %p= @meal.ingredients? ? @meal.ingredients.gsub(/\n/, '<br/>').html_safe : "None provided."
+    .special_instructions
+      %h2 Special Instructions:
+      %p= @meal.ingredients? ? @meal.special_instructions : "None provided."
+

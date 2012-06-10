@@ -3,11 +3,16 @@ class MealsController < ApplicationController
   before_filter :authenticate_user!, :except => [ :index, :show ] 
 
   def index
-    @meals = params[:user].nil? ? Meal.find(:all) : Meal.where(:user_id => params[:user])
+    @meals = params[:user].nil? ? Meal.scoped.page(params[:page]) : Meal.where(:user_id => params[:user]).page(params[:page])
   end
 
   def show
     @meal = Meal.find(params[:id])
+    MealViewing.create(
+      :meal_id => @meal.id,
+      :user_id => current_user ? current_user.id : nil
+    )
+    @comment = Comment.new
   end
 
   def create 

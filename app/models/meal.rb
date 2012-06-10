@@ -1,11 +1,17 @@
 class Meal < ActiveRecord::Base
 
-attr_protected :user_id
+  default_scope order('meal_time DESC')
 
-belongs_to :user
+  attr_protected :user_id
 
-validates_presence_of :name, :meal_time, :meal_photo
+  belongs_to :user
 
-mount_uploader :meal_photo, MealPhotoUploader
+  has_many :meal_viewings
+  has_many :viewed_users, :through => :meal_viewings, :class_name => :user
+  has_many :comments
+
+  validates_presence_of :name, :meal_time, :meal_photo
+
+  mount_uploader :meal_photo, MealPhotoUploader
 
 end
