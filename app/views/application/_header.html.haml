@@ -1,12 +1,11 @@
-%header#header
-  %h1 
-    =link_to "Twenty Food Seven", root_path
+%header#header 
+  =link_to "Twenty Food Seven", root_path, :id => "logo"
   %ul#nav 
     - unless user_signed_in? 
       %li
-        =link_to "Sign Up", new_user_registration_path
+        =link_to "Sign Up", new_user_registration_path, :class => "button"
       %li
-        =link_to "Sign In", new_user_session_path
+        =link_to "Sign In", new_user_session_path, :class => "button"
     - else
       %li
         =link_to current_user.name, edit_user_registration_path
